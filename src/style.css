@@ -1,0 +1,44 @@
+@import './normalize.css';
+
+@font-face {
+	font-family: 'VT323';
+	src: url('/VT323-Regular.woff') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--font-mono: 'VT323', ui-monospace, Consolas, monospace;
+	--primary-hue: 255;
+	--primary: hsl(var(--primary-hue) 100% 70%);
+	--bg: rgb(3 3 5);
+
+	/* one length unit, one font pixel*/
+	--l: 0.08rem;
+
+	font-size: 25px;
+	color-scheme: dark;
+	color: var(--primary);
+	background: rgb(3 3 5);
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#app {
+	block-size: 100%;
+}
+
+*:focus-visible {
+	outline: var(--l) solid hsl(var(--primary-hue) 100% 70%);
+	outline-offset: var(--l);
+}
+
+*::selection {
+	background: var(--primary);
+	color: var(--bg);
+}
