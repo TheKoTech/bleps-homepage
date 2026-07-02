@@ -35,7 +35,7 @@ useShortcuts()
 			<ServiceItem
 				name="Adguard"
 				hotkey="Ctrl+D"
-				href="https://frigate.bleps.xyz"
+				href="https://adguard.bleps.xyz"
 				:status="ServiceStatus.Bad"
 			/>
 
