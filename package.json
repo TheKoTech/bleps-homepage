@@ -7,7 +7,8 @@
 		"dev": "vite",
 		"build": "vue-tsc -b && vite build",
 		"format": "prettier src/**/*{.vue,.ts} -w",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"publish": "pnpm build && rsync -av --delete --exclude '.gitkeep' dist/ syn@server:/home/syn/services/www/"
 	},
 	"dependencies": {
 		"vue": "^3.5.38"
