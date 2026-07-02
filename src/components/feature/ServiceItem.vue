@@ -30,7 +30,7 @@ const StatusIcon = computed(() =>
 			<div class="service-item__icon">
 				<Icon />
 
-				<StatusIcon class="service-item__status-icon" />
+				<!-- <StatusIcon class="service-item__status-icon" /> -->
 			</div>
 
 			<PxKbd>{{ props.hotkey }}</PxKbd>

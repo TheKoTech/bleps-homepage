@@ -10,7 +10,7 @@ export function useShortcuts() {
 		'ctrl+f': () => goTo('files'),
 		'ctrl+s': () => goTo('search'),
 		'ctrl+d': () => goTo('adguard'),
-		'ctrl+e': () => goTo('homeassistant'),
+		'ctrl+e': () => goTo('home'),
 		'ctrl+g': () => goTo('cam'),
 	}
 

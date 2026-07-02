@@ -42,7 +42,7 @@ useShortcuts()
 			<ServiceItem
 				name="Homeassistant"
 				hotkey="Ctrl+E"
-				href="https://homeassistant.bleps.xyz"
+				href="https://home.bleps.xyz"
 				:status="ServiceStatus.Bad"
 			/>
 
