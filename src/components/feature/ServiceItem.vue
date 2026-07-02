@@ -19,9 +19,9 @@ const props = defineProps<Props>()
 
 const Icon = computed(() => icons[props.name])
 
-const StatusIcon = computed(() =>
-	props.status === ServiceStatus.Ok ? icons.StatusOk : icons.StatusBad,
-)
+// const StatusIcon = computed(() =>
+// 	props.status === ServiceStatus.Ok ? icons.StatusOk : icons.StatusBad,
+// )
 </script>
 
 <template>
