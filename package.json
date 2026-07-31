@@ -3,6 +3,10 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
+	"engines": {
+		"node": "26.5.1",
+		"pnpm": "11.18.0"
+	},
 	"scripts": {
 		"dev": "vite",
 		"build": "vue-tsc -b && vite build",
@@ -11,22 +15,22 @@
 		"publish": "pnpm build && rsync -av --delete --exclude '.gitkeep' dist/ syn@server:/home/syn/services/www/"
 	},
 	"dependencies": {
-		"vue": "^3.5.38"
+		"vue": "^3.5.40"
 	},
 	"devDependencies": {
-		"@eslint/css": "^1.3.0",
+		"@eslint/css": "^1.4.0",
 		"@eslint/js": "^10.0.1",
-		"@types/node": "^24.13.2",
-		"@vitejs/plugin-vue": "^6.0.7",
+		"@types/node": "^26.1.2",
+		"@vitejs/plugin-vue": "^6.0.8",
 		"@vue/tsconfig": "^0.9.1",
-		"eslint": "^10.6.0",
-		"eslint-plugin-vue": "^10.9.2",
-		"globals": "^17.7.0",
-		"prettier": "^3.9.1",
-		"typescript": "~6.0.2",
-		"typescript-eslint": "^8.62.0",
-		"vite": "^8.1.0",
+		"eslint": "^10.8.0",
+		"eslint-plugin-vue": "^10.10.0",
+		"globals": "^17.8.0",
+		"prettier": "^3.9.6",
+		"typescript": "~6.0.3",
+		"typescript-eslint": "^8.65.0",
+		"vite": "^8.2.0",
 		"vite-svg-loader": "^5.1.1",
-		"vue-tsc": "^3.3.5"
+		"vue-tsc": "^3.3.8"
 	}
 }
