@@ -56,14 +56,12 @@ const services = [
 		/>
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>he blep</title>
+		<title>blep!</title>
 	</head>
 	<body>
 		<main class="app-content">
-			<h1 class="app-content__title">https://search.bleps.xyz/search?q=</h1>
-
-			<h1 class="app-content__title app-content__title--small">
-				search.bleps.xyz/search?q=
+			<h1 class="app-content__title">
+				blep! <span>:b</span>
 			</h1>
 
 			<SearchField />
@@ -76,6 +74,26 @@ const services = [
 		</main>
 
 		<script>
+			const titles = [
+				['blep!', ';b'],
+				['blep?', ':b'],
+				['blep.', ':b'],
+				['blep.', ';b'],
+				['blep!', '>:b'],
+				['b-blep?', '>w<'],
+				['bwehh..', '-w-'],
+				['bwah!', 'OwO'],
+				['meow!', '^w^'],
+				['No blep this time', ''],
+			]
+
+			if (Math.random() < 0.01) {
+				const [text, face] = titles[Math.floor(Math.random() * titles.length)]
+				const title = document.querySelector('.app-content__title')!
+				title.firstChild!.textContent = `${text} `
+				title.querySelector('span')!.textContent = face
+			}
+
 			// Hotkeys are read from the rendered service links, e.g. data-hotkey="Ctrl+F"
 			const hotkeys = new Map(
 				Array.from(
@@ -110,22 +128,22 @@ const services = [
 		block-size: 100%;
 		inline-size: 100%;
 		margin-inline: auto;
-		max-inline-size: calc(var(--l) * 380);
+		max-inline-size: calc(var(--l) * 382);
 		padding-inline: calc(var(--l) * 16);
 		align-items: flex-start;
 		justify-content: center;
 
 		display: flex;
 		flex-direction: column;
-		gap: calc(var(--l) * 12);
+		gap: calc(var(--l) * 16);
 	}
 
 	.app-content__title {
-		font-size: 1rem;
-	}
+		font-size: 2rem;
 
-	.app-content__title--small {
-		display: none;
+		& > * {
+			letter-spacing: calc(var(--l) * -1);
+		}
 	}
 
 	.app-content__services {
@@ -133,28 +151,26 @@ const services = [
 		align-items: center;
 		inline-size: 100%;
 		justify-content: center;
-		gap: calc(var(--l) * 6);
+		gap: calc(var(--l) * 4);
 	}
 
-	@media screen and (width <= 700px) {
+	@media screen and (width < 840px) {
+		.app-content {
+			gap: calc(var(--l) * 10);
+		}
+
 		.app-content__services {
 			flex-wrap: wrap;
 		}
+
+		.app-content__title {
+			font-size: 1.5rem;
+		}
 	}
 
-	@media screen and (width <= 450px) {
+	@media screen and (width <= 420px) {
 		.app-content {
 			padding-inline: calc(var(--l) * 8);
-		}
-	}
-
-	@media screen and (width < 392px) {
-		.app-content__title {
-			display: none;
-		}
-
-		.app-content__title--small {
-			display: block;
 		}
 	}
 </style>
