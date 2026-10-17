@@ -1,17 +1,25 @@
 ---
 import Search from '../../assets/Search.svg'
+import PxIconButton from '../px/PxIconButton.astro'
 import PxInput from '../px/PxInput.astro'
 ---
 
-<form class="search-form" action="https://search.bleps.xyz/search" method="get">
+<form
+	class="search-form"
+	role="search"
+	action="https://search.bleps.xyz/search"
+	method="get"
+>
 	<PxInput
+		type="search"
 		name="q"
-		icon={Search}
 		placeholder="Query"
 		aria-label="Search"
 		autocomplete="off"
 		autofocus
-	/>
+	>
+		<PxIconButton slot="end" type="submit" icon={Search} label="Search" />
+	</PxInput>
 </form>
 
 <style is:global>

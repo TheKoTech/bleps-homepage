@@ -2,16 +2,22 @@
 import type { HTMLAttributes } from 'astro/types'
 
 // Only Corner3 has a bevel frame
-type Props = HTMLAttributes<'div'> &
-	(
+// span is for phrasing-only parents, e.g. inside a button
+type Props = HTMLAttributes<'div'> & { as?: 'div' | 'span' } & (
 		| { corner: 'Corner2'; bevel?: false }
 		| { corner: 'Corner3'; bevel?: boolean }
 	)
 
-const { corner, bevel = false, class: className, ...rest } = Astro.props
+const {
+	as: Tag = 'div',
+	corner,
+	bevel = false,
+	class: className,
+	...rest
+} = Astro.props
 ---
 
-<div
+<Tag
 	class:list={[
 		'px-rect',
 		`px-rect--${corner.toLowerCase()}`,
@@ -21,7 +27,7 @@ const { corner, bevel = false, class: className, ...rest } = Astro.props
 	{...rest}
 >
 	<slot />
-</div>
+</Tag>
 
 <style is:global>
 	/* Frames are 9-slice SVGs drawn with border-image on pseudo-elements.

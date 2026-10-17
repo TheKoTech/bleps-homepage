@@ -2,18 +2,16 @@
 import type { HTMLAttributes } from 'astro/types'
 import PxRect from './PxRect.astro'
 
-type Props = HTMLAttributes<'input'> & {
-	icon?: (props: HTMLAttributes<'svg'>) => unknown
-}
+type Props = HTMLAttributes<'input'>
 
-const { icon: Icon, ...inputAttrs } = Astro.props
+const inputAttrs = Astro.props
 ---
 
 <PxRect class="px-input" corner="Corner2">
 	<div class="px-input__inner">
 		<input class="px-input__field" {...inputAttrs} />
 
-		{Icon && <Icon class="px-input__icon" />}
+		<slot name="end" />
 	</div>
 </PxRect>
 
@@ -42,11 +40,10 @@ const { icon: Icon, ...inputAttrs } = Astro.props
 		&:focus-visible {
 			outline: unset;
 		}
-	}
 
-	.px-input__icon {
-		block-size: calc(var(--l) * 12);
-		inline-size: calc(var(--l) * 12);
-		flex-shrink: 0;
+		/* Native clear button clashes with the pixel frame; Esc still clears */
+		&::-webkit-search-cancel-button {
+			appearance: none;
+		}
 	}
 </style>

@@ -1,0 +1,74 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import PxRect from "./PxRect.astro";
+
+// label is required: an icon-only button has no other accessible name
+type Props = Omit<HTMLAttributes<"button">, "aria-label"> & {
+  icon: (props: HTMLAttributes<"svg">) => unknown;
+  label: string;
+};
+
+const {
+  icon: Icon,
+  label,
+  type = "button",
+  class: className,
+  // Astro passes the parent's slot name through as a prop
+  slot: _slot,
+  ...rest
+} = Astro.props;
+---
+
+<button
+  class:list={["px-icon-button", className]}
+  type={type}
+  aria-label={label}
+  {...rest}
+>
+  <PxRect as="span" class="px-icon-button__frame" corner="Corner3">
+    <Icon class="px-icon-button__icon" aria-hidden="true" />
+  </PxRect>
+</button>
+
+<style is:global>
+  /* Padding grows the hit area past the frame, the negative margin
+     gives that space back so layout only sees the frame */
+  .px-icon-button {
+    --hit-pad: calc(var(--l) * 3);
+
+    display: inline-flex;
+    padding: var(--hit-pad);
+    margin: calc(var(--hit-pad) * -1);
+    color: inherit;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: unset;
+    }
+  }
+
+  .px-icon-button__frame {
+    display: flex;
+    padding: calc(var(--l) * 3);
+
+    &::before {
+      visibility: hidden;
+    }
+
+    .px-icon-button:is(:focus-visible, :active) > &::before {
+      visibility: visible;
+    }
+
+    /* Touch devices keep :hover after a tap */
+    @media (hover: hover) {
+      .px-icon-button:hover > &::before {
+        visibility: visible;
+      }
+    }
+  }
+
+  .px-icon-button__icon {
+    block-size: calc(var(--l) * 12);
+    inline-size: calc(var(--l) * 12);
+  }
+</style>
