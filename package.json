@@ -1,17 +1,28 @@
 {
-  "name": "v2",
-  "type": "module",
-  "version": "0.0.1",
-  "engines": {
-    "node": ">=22.22.0"
-  },
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^7.4.0"
-  }
+	"name": "v2",
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"check": "astro check",
+		"lint": "oxlint",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"astro": "^7.4.0"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.9.10",
+		"@astrojs/compiler-rs": "^0.5.2",
+		"oxfmt": "^0.73.0",
+		"oxlint": "^1.88.0",
+		"typescript": "~6.0.3"
+	},
+	"engines": {
+		"node": ">=22.22.0"
+	}
 }

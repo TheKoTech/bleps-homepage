@@ -34,18 +34,16 @@ const { Corner, size } = corners[corner]
 	<div class="px-rect__edge px-rect__edge--bottom"></div>
 	<div class="px-rect__edge px-rect__edge--left"></div>
 
-	{
-		bevel && (
-			<div class="px-rect__bevel">
-				<Corner class="px-rect__corner px-rect__corner--tr" />
-				<Corner class="px-rect__corner px-rect__corner--br" />
-				<Corner class="px-rect__corner px-rect__corner--bl" />
+	{bevel && (
+		<div class="px-rect__bevel">
+			<Corner class="px-rect__corner px-rect__corner--tr" />
+			<Corner class="px-rect__corner px-rect__corner--br" />
+			<Corner class="px-rect__corner px-rect__corner--bl" />
 
-				<div class="px-rect__edge px-rect__edge--right" />
-				<div class="px-rect__edge px-rect__edge--bottom" />
-			</div>
-		)
-	}
+			<div class="px-rect__edge px-rect__edge--right" />
+			<div class="px-rect__edge px-rect__edge--bottom" />
+		</div>
+	)}
 
 	<div class="px-rect__content">
 		<slot />

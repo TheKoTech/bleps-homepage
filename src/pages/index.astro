@@ -9,11 +9,36 @@ import SearchField from '../components/feature/SearchField.astro'
 import ServiceItem from '../components/feature/ServiceItem.astro'
 
 const services = [
-	{ name: 'Seafile', icon: Seafile, hotkey: 'Ctrl+F', href: 'https://files.bleps.xyz' },
-	{ name: 'Searxng', icon: Searxng, hotkey: 'Ctrl+S', href: 'https://search.bleps.xyz' },
-	{ name: 'Adguard', icon: Adguard, hotkey: 'Ctrl+D', href: 'https://adguard.bleps.xyz' },
-	{ name: 'Homeassistant', icon: Homeassistant, hotkey: 'Ctrl+E', href: 'https://home.bleps.xyz' },
-	{ name: 'Frigate', icon: Frigate, hotkey: 'Ctrl+G', href: 'https://cam.bleps.xyz' },
+	{
+		name: 'Seafile',
+		icon: Seafile,
+		hotkey: 'Ctrl+F',
+		href: 'https://files.bleps.xyz',
+	},
+	{
+		name: 'Searxng',
+		icon: Searxng,
+		hotkey: 'Ctrl+S',
+		href: 'https://search.bleps.xyz',
+	},
+	{
+		name: 'Adguard',
+		icon: Adguard,
+		hotkey: 'Ctrl+D',
+		href: 'https://adguard.bleps.xyz',
+	},
+	{
+		name: 'Homeassistant',
+		icon: Homeassistant,
+		hotkey: 'Ctrl+E',
+		href: 'https://home.bleps.xyz',
+	},
+	{
+		name: 'Frigate',
+		icon: Frigate,
+		hotkey: 'Ctrl+G',
+		href: 'https://cam.bleps.xyz',
+	},
 ]
 ---
 
@@ -43,7 +68,9 @@ const services = [
 			<SearchField />
 
 			<div class="app-content__services">
-				{services.map((service) => <ServiceItem {...service} />)}
+				{services.map((service) => (
+					<ServiceItem {...service} />
+				))}
 			</div>
 		</main>
 
