@@ -11,7 +11,6 @@
 }
 
 :root {
-	--font-mono: 'Departure Mono', ui-monospace, Consolas, monospace;
 	--primary-hue: 255;
 	--primary: hsl(var(--primary-hue) 100% 70%);
 	--bg: rgb(3 3 5);
@@ -22,9 +21,8 @@
 	font-size: 22px;
 	color-scheme: dark;
 	color: var(--primary);
-	background: rgb(3 3 5);
+	background: var(--bg);
 	font-synthesis: none;
-	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -35,7 +33,7 @@ body {
 }
 
 *:focus-visible {
-	outline: var(--l) solid hsl(var(--primary-hue) 100% 70%);
+	outline: var(--l) solid var(--primary);
 	outline-offset: var(--l);
 }
 
