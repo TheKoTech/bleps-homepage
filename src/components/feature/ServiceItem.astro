@@ -1,0 +1,66 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import PxKbd from '../px/PxKbd.astro'
+import PxRect from '../px/PxRect.astro'
+
+type Props = {
+	name: string
+	icon: (props: HTMLAttributes<'svg'>) => unknown
+	hotkey: string
+	href: string
+}
+
+const { name, icon: Icon, hotkey, href } = Astro.props
+---
+
+<a class="service-item" href={href} aria-label={name} data-hotkey={hotkey}>
+	<div class="service-item__content">
+		<div class="service-item__icon">
+			<Icon />
+		</div>
+
+		<PxKbd>{hotkey}</PxKbd>
+	</div>
+
+	<PxRect class="service-item__rect" corner="Corner3" />
+</a>
+
+<style>
+	.service-item {
+		display: block;
+		position: relative;
+		user-select: none;
+
+		&:where(:focus-visible, :hover, :active) {
+			outline: none;
+
+			.service-item__rect {
+				display: block;
+			}
+		}
+	}
+
+	.service-item__content {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		padding: calc(var(--l) * 8);
+		gap: calc(var(--l) * 4);
+	}
+
+	.service-item__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		> * {
+			flex-shrink: 0;
+		}
+	}
+
+	.service-item__rect {
+		position: absolute;
+		inset: 0;
+		display: none;
+	}
+</style>

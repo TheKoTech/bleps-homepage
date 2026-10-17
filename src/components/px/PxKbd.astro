@@ -1,0 +1,15 @@
+---
+import PxRect from './PxRect.astro'
+---
+
+<PxRect corner="Corner3" bevel>
+	<kbd class="px-kbd__content"><slot /></kbd>
+</PxRect>
+
+<style>
+	.px-kbd__content {
+		display: inline-block;
+		padding-block: calc(var(--l) * 0.75) calc(var(--l) * 1.25);
+		padding-inline: calc(var(--l) * 5);
+	}
+</style>

@@ -1,0 +1,24 @@
+---
+import Search from '../../assets/Search.svg'
+import PxInput from '../px/PxInput.astro'
+---
+
+<form class="search-form" action="https://search.bleps.xyz/search" method="get">
+	<PxInput
+		name="q"
+		icon={Search}
+		placeholder="Query"
+		aria-label="Search"
+		autocomplete="off"
+		autofocus
+	/>
+</form>
+
+<style>
+	.search-form {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--l) * 2);
+		inline-size: 100%;
+	}
+</style>

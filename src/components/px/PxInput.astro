@@ -1,0 +1,52 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import PxRect from './PxRect.astro'
+
+type Props = HTMLAttributes<'input'> & {
+	icon?: (props: HTMLAttributes<'svg'>) => unknown
+}
+
+const { icon: Icon, ...inputAttrs } = Astro.props
+---
+
+<PxRect class="px-input" corner="Corner2">
+	<div class="px-input__inner">
+		<input class="px-input__field" {...inputAttrs} />
+
+		{Icon && <Icon class="px-input__icon" />}
+	</div>
+</PxRect>
+
+<style>
+	.px-input {
+		block-size: calc(var(--l) * 20);
+		inline-size: 100%;
+	}
+
+	.px-input__inner {
+		display: flex;
+		inline-size: 100%;
+		block-size: 100%;
+		align-items: center;
+		gap: calc(var(--l) * 8);
+		justify-content: space-between;
+		padding-inline: calc(var(--l) * 10);
+	}
+
+	.px-input__field {
+		color: var(--primary);
+		caret-color: var(--primary);
+		padding-block-end: var(--l);
+		inline-size: 100%;
+
+		&:focus-visible {
+			outline: unset;
+		}
+	}
+
+	.px-input__icon {
+		block-size: calc(var(--l) * 12);
+		inline-size: calc(var(--l) * 12);
+		flex-shrink: 0;
+	}
+</style>

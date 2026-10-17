@@ -1,0 +1,45 @@
+@import './normalize.css';
+
+@font-face {
+	font-family: 'Departure Mono';
+	src:
+		url('/fonts/DepartureMono/DepartureMono-Regular.woff2') format('woff2'),
+		url('/fonts/DepartureMono/DepartureMono-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--font-mono: 'Departure Mono', ui-monospace, Consolas, monospace;
+	--primary-hue: 255;
+	--primary: hsl(var(--primary-hue) 100% 70%);
+	--bg: rgb(3 3 5);
+
+	/* one length unit, one font pixel*/
+	--l: calc(1rem / 11);
+
+	font-size: 22px;
+	color-scheme: dark;
+	color: var(--primary);
+	background: rgb(3 3 5);
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+	block-size: 100%;
+}
+
+*:focus-visible {
+	outline: var(--l) solid hsl(var(--primary-hue) 100% 70%);
+	outline-offset: var(--l);
+}
+
+*::selection {
+	background: var(--primary);
+	color: var(--bg);
+}
