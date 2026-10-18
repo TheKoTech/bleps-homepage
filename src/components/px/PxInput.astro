@@ -37,6 +37,11 @@ const inputAttrs = Astro.props
 		padding-block-end: var(--l);
 		inline-size: 100%;
 
+		&::placeholder {
+			color: var(--primary);
+			opacity: 50%;
+		}
+
 		&:focus-visible {
 			outline: unset;
 		}
