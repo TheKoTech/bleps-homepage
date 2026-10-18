@@ -4,7 +4,7 @@
 
 ## Optimized to hell
 
-`v1` was written in Vue, but that added quite a bit of unnecessary functionality like reactivity and dynamic rendering. `v2` is built with Astro and the page is generated statically. 
+`v1` was written in Vue, but that added quite a bit of unnecessary functionality like reactivity and dynamic rendering. `v2` is built with Astro and the page is generated statically.
 
 The site itself went from 34.2kb down to 4.6kb gzipped, the new DepartureMono font is 22kb gzipped compared to 46kb VT323, so another couple of kb saved. I could subset the font to make the app ~6-8kb instead of 28, but the search input is user input, so I decided against it, it's already small as heck
 
