@@ -1,0 +1,48 @@
+---
+import { version } from '../../../package.json'
+import Github from '../../assets/Github.svg'
+---
+
+<footer class="app-footer">
+	<a
+		class="app-footer__link"
+		href="https://github.com/TheKoTech/bleps-homepage"
+	>
+		<Github class="app-footer__icon" aria-hidden="true" />
+
+		<span>v{version}</span>
+	</a>
+
+	<span>by welnyr</span>
+</footer>
+
+<style is:global>
+	.app-footer {
+		display: flex;
+		font-size: 0.5rem;
+		color: hsl(var(--primary-hue) 100% 70% / 65%);
+		align-items: center;
+		justify-content: space-between;
+		padding-block: calc(var(--l) * 6);
+
+		@media screen and (width < 764px) {
+			padding-block: calc(var(--l) * 2);
+		}
+	}
+
+	.app-footer__link {
+		display: flex;
+		align-items: center;
+		gap: calc(var(--l) * 6);
+		padding: calc(var(--l) * 4);
+
+		&:where(:hover, :focus-visible, :active) {
+			text-decoration: underline;
+		}
+	}
+
+	.app-footer__icon {
+		block-size: calc(var(--l) * 12);
+		inline-size: calc(var(--l) * 12);
+	}
+</style>

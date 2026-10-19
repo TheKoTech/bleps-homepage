@@ -5,6 +5,7 @@ import Frigate from '../assets/Frigate.svg'
 import Homeassistant from '../assets/Homeassistant.svg'
 import Seafile from '../assets/Seafile.svg'
 import Searxng from '../assets/Searxng.svg'
+import AppFooter from '../components/feature/AppFooter.astro'
 import SearchField from '../components/feature/SearchField.astro'
 import ServiceItem from '../components/feature/ServiceItem.astro'
 
@@ -73,6 +74,8 @@ const services = [
 			</div>
 		</main>
 
+		<AppFooter />
+
 		<script>
 			const titles = [
 				['blep!', ';b'],
@@ -124,14 +127,25 @@ const services = [
 </html>
 
 <style is:global>
-	.app-content {
-		block-size: 100%;
+	body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* Footer shares the content column so it lines up with the search field */
+	.app-content,
+	.app-footer {
 		inline-size: 100%;
 		margin-inline: auto;
 		max-inline-size: calc(var(--l) * 382);
 		padding-inline: calc(var(--l) * 16);
+	}
+
+	.app-content {
+		flex: 1;
 		align-items: flex-start;
 		justify-content: center;
+		padding-block: calc(var(--l) * 40);
 
 		display: flex;
 		flex-direction: column;
@@ -154,9 +168,10 @@ const services = [
 		gap: calc(var(--l) * 4);
 	}
 
-	@media screen and (width < 840px) {
+	@media screen and (width < 764px) {
 		.app-content {
 			gap: calc(var(--l) * 10);
+			padding-block: calc(var(--l) * 24);
 		}
 
 		.app-content__services {
@@ -169,8 +184,13 @@ const services = [
 	}
 
 	@media screen and (width <= 420px) {
+		.app-content,
+		.app-footer {
+			padding-inline: calc(var(--l) * 12);
+		}
+
 		.app-content {
-			padding-inline: calc(var(--l) * 8);
+			padding-block: calc(var(--l) * 12);
 		}
 	}
 </style>
