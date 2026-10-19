@@ -1,6 +1,6 @@
 # A homepage for our home server
 
-<img width="938" height="447" alt="image" src="https://github.com/user-attachments/assets/23fc5fe9-97e8-46e8-ac0f-f9b7cce40ab5" />
+<img width="1634" height="730" alt="image" src="https://github.com/user-attachments/assets/f38b05a0-d2c2-475f-b403-5e9b47d71df5" />
 
 ## Optimized to hell
 
